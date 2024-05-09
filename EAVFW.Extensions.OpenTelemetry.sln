@@ -9,11 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 		package.json = package.json
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{49D9AD91-45B5-4101-89B6-ACF46B22CCFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAVFW.Extensions.OpenTelemetry", "src\EAVFW.Extensions.OpenTelemetry\EAVFW.Extensions.OpenTelemetry.csproj", "{8F64AFF4-8C1A-48FE-B1B0-35C508B7ABF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAVFW.Extensions.OpenTelemetry", "src\EAVFW.Extensions.OpenTelemetry\EAVFW.Extensions.OpenTelemetry.csproj", "{8F64AFF4-8C1A-48FE-B1B0-35C508B7ABF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{3F495382-A8DF-4CE0-9E81-C9F1DB4A5B5C}"
 EndProject

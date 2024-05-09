@@ -2,10 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+
+	  <Title>EAVFW.Extensions.OpenTelemetry</Title>
+	  <Authors>Poul Kjeldager</Authors>
+	  <Description>Extension for Open Telemetry</Description>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <RepositoryUrl>https://github.com/EAVFW/EAVFW.Extensions.OpenTelemetry</RepositoryUrl>
+	  
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+	 <None Include="..\..\README.md" Link="README.md" Pack="true" PackagePath="\" />
+ 
   </ItemGroup>
 
   <ItemGroup>
