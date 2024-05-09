@@ -66,6 +66,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          submodules: 'true'
 
       - name: Cleaning
         run: dotnet clean
