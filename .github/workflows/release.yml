@@ -78,7 +78,7 @@ jobs:
         run: dotnet restore EAVFW.Extensions.OpenTelemetry.sln
       
       - name: print version
-        run: echo ${{ toJSON(needs) }}
+        run: echo "${{ toJSON(needs) }}"
 
       - name: Package Parser
         run: dotnet pack -c Release -p:PackageVersion=${{ needs.getversion.outputs.nextVersion}} -o ./artifacts
