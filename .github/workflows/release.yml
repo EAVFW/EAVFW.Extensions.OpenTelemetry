@@ -8,7 +8,6 @@ on:
 
 jobs:
   getversion:
-    name: GenVersion
     runs-on: windows-latest
     outputs:
       nextVersion: ${{ steps.setNextVersion.outputs.nextVersion }}
@@ -79,10 +78,10 @@ jobs:
         run: dotnet restore EAVFW.Extensions.OpenTelemetry.sln
       
       - name: print version
-        run: echo ${{ needs.getversion.outputs.nextVersion}}
+        run: echo ${{ toJSON(needs)}
 
       - name: Package Parser
-        run: dotnet pack -c Release -p:PackageVersion=${{ needs.getversion.outputs.nextVersion}}+ -o ./artifacts
+        run: dotnet pack -c Release -p:PackageVersion=${{ needs.getversion.outputs.nextVersion}} -o ./artifacts
         if: ${{ needs.getversion.outputs.nextVersion}}
 
       - name: Release to GitHub and NuGet
