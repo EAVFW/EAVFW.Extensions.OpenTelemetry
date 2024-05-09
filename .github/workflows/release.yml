@@ -35,7 +35,10 @@ jobs:
       - name: Add plugin for executing bash commands
         run: npx semantic-release --dry-run --debug
         working-directory: ./.github/workflows
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_AUTHOR_NAME: pksorensen
+          GIT_AUTHOR_EMAIL: poul@kjeldager.com
         
 
       - name: Dry Run Semantic to get next Version nummber
