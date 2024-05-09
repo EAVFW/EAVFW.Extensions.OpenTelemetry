@@ -11,7 +11,7 @@ jobs:
     name: GenVersion
     runs-on: windows-latest
     outputs:
-      nextversion: ${{ steps.setNextVersion.outputs.nextVersion }}
+      nextVersion: ${{ steps.setNextVersion.outputs.nextVersion }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
