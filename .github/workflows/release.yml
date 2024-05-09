@@ -32,6 +32,12 @@ jobs:
         run: npm install @semantic-release/exec -D
         working-directory: ./.github/workflows
 
+      - name: Add plugin for executing bash commands
+        run: npx semantic-release --dry-run --debug
+        working-directory: ./.github/workflows
+
+        
+
       - name: Dry Run Semantic to get next Version nummber
         working-directory: ./.github/workflows
         env:
