@@ -11,7 +11,7 @@ jobs:
     name: GenVersion
     runs-on: windows-latest
     outputs:
-      release-version: ${{ steps.check-prs.outputs.RELEASE_VERSION }}
+      nextversion: ${{ steps.setNextVersion.outputs.nextVersion }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -52,17 +52,15 @@ jobs:
       - name: Print release verison
         run: echo ${env:RELEASE_VERSION}
       - name: Check PRs
-        id: check-prs
-        run: |
-          # ...
-          echo "RELEASE_VERSION=${env:RELEASE_VERSION}" >> $GITHUB_OUTPUT
+        id: setNextVersion
+        run: echo "nextVersion=${env:RELEASE_VERSION}" >> "$GITHUB_OUTPUT"
 
   release:
     needs: [getversion]
-    name: Rlease
+    name: Release
     runs-on: ubuntu-latest
     env:
-      RELEASE_VERSION: ${{ needs.getversion.outputs.release-version }}
+      RELEASE_VERSION: ${{ needs.getversion.outputs.nextVersion}}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -80,10 +78,13 @@ jobs:
 
       - name: Restore NuGet packages
         run: dotnet restore EAVFW.Extensions.OpenTelemetry.sln
+      
+      - name: print version
+        run: echo ${{ needs.getversion.outputs.nextVersion}}
 
       - name: Package Parser
-        run: dotnet pack -c Release -p:PackageVersion=${env:RELEASE_VERSION} -o ./artifacts
-        if: ${{ env.RELEASE_VERSION }}
+        run: dotnet pack -c Release -p:PackageVersion=${{ needs.getversion.outputs.nextVersion}}+ -o ./artifacts
+        if: ${{ needs.getversion.outputs.nextVersion}}
 
       - name: Release to GitHub and NuGet
         working-directory: .\\.github\\workflows
