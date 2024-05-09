@@ -56,7 +56,7 @@ jobs:
         run: echo "nextVersion=${env:RELEASE_VERSION}" >> "$GITHUB_OUTPUT"
 
   release:
-    needs: [getversion]
+    needs: getversion
     name: Release
     runs-on: ubuntu-latest
     env:
