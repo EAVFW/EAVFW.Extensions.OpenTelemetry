@@ -87,7 +87,7 @@ jobs:
         working-directory: ./.github/workflows
 
       - name: Release to GitHub and NuGet
-        working-directory: .\\.github\\workflows
+        working-directory: ./.github/workflows
         env:
           CI_NUGET_API_KEY: ${{ secrets.CI_NUGET_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
